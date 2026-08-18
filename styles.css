@@ -1,0 +1,883 @@
+/*
+ * ================================================================
+ * #BoraReciclar — styles.css
+ * Escola Benjamin Constant • Pará
+ *
+ * Folha de estilos principal do protótipo.
+ *
+ * Objetivos:
+ * - manter a identidade amazônica do projeto;
+ * - complementar o Tailwind usado no index.html;
+ * - cuidar das animações e estados do script.js;
+ * - garantir uma experiência boa no celular e computador;
+ * - manter o visual preparado para uma futura versão com backend.
+ * ================================================================
+ */
+
+
+/* ================================================================
+   01. VARIÁVEIS E BASE
+   ================================================================ */
+
+:root {
+    --br-verde: #0f766e;
+    --br-verde-claro: #16a34a;
+    --br-verde-escuro: #065f46;
+
+    --br-azul: #0369a1;
+    --br-azul-claro: #0ea5e9;
+
+    --br-amarelo: #f59e0b;
+    --br-terracota: #b45309;
+
+    --br-areia: #f5ead5;
+    --br-fundo: #f1f5f9;
+
+    --br-texto: #1e293b;
+    --br-texto-suave: #64748b;
+
+    --br-branco: #ffffff;
+
+    --br-radius: 1.25rem;
+    --br-radius-lg: 1.75rem;
+
+    --br-shadow:
+        0 10px 30px rgba(15, 23, 42, 0.08);
+
+    --br-shadow-hover:
+        0 18px 40px rgba(15, 23, 42, 0.13);
+
+    --br-transition:
+        180ms ease;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    min-height: 100vh;
+    color: var(--br-texto);
+    background:
+        radial-gradient(
+            circle at 8% 8%,
+            rgba(20, 184, 166, 0.08),
+            transparent 28rem
+        ),
+        radial-gradient(
+            circle at 92% 20%,
+            rgba(3, 105, 161, 0.06),
+            transparent 26rem
+        ),
+        linear-gradient(
+            180deg,
+            #f8fafc 0%,
+            var(--br-fundo) 100%
+        );
+}
+
+
+::selection {
+    color: #ffffff;
+    background: var(--br-verde);
+}
+
+
+/* ================================================================
+   02. ACESSIBILIDADE
+   ================================================================ */
+
+.focus-ring:focus-visible,
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+    outline: 3px solid var(--br-amarelo);
+    outline-offset: 3px;
+}
+
+
+/*
+ * Não remover o outline globalmente.
+ * O foco é importante para navegação por teclado.
+ */
+button,
+a,
+input {
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* ================================================================
+   03. GRAFISMO AMAZÔNICO
+   ================================================================ */
+
+/*
+ * Padrão geométrico decorativo.
+ *
+ * É propositalmente abstrato: serve como referência visual
+ * amazônica sem atribuir um grafismo específico a uma etnia.
+ */
+.amazon-pattern {
+    position: relative;
+    isolation: isolate;
+
+    background-color: var(--br-areia);
+
+    background-image:
+        linear-gradient(
+            45deg,
+            rgba(124, 45, 18, 0.10) 25%,
+            transparent 25%
+        ),
+        linear-gradient(
+            -45deg,
+            rgba(124, 45, 18, 0.10) 25%,
+            transparent 25%
+        ),
+        linear-gradient(
+            45deg,
+            transparent 75%,
+            rgba(124, 45, 18, 0.10) 75%
+        ),
+        linear-gradient(
+            -45deg,
+            transparent 75%,
+            rgba(124, 45, 18, 0.10) 75%
+        );
+
+    background-size: 22px 22px;
+    background-position:
+        0 0,
+        0 11px,
+        11px -11px,
+        -11px 0;
+}
+
+
+/*
+ * Faixa geométrica menor para rodapé e divisores.
+ */
+.amazon-stripe {
+    height: 10px;
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--br-amarelo) 0 20%,
+            var(--br-verde-claro) 20% 40%,
+            var(--br-azul) 40% 60%,
+            var(--br-terracota) 60% 80%,
+            var(--br-verde) 80% 100%
+        );
+}
+
+
+/* ================================================================
+   04. GRADIENTES PRINCIPAIS
+   ================================================================ */
+
+.river-gradient {
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(255, 255, 255, 0.18),
+            transparent 22%
+        ),
+        radial-gradient(
+            circle at 20% 85%,
+            rgba(255, 255, 255, 0.12),
+            transparent 25%
+        ),
+        linear-gradient(
+            135deg,
+            var(--br-verde),
+            var(--br-azul)
+        );
+}
+
+
+.hero-pattern {
+    position: relative;
+    isolation: isolate;
+}
+
+
+.hero-pattern::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+    opacity: 0.14;
+
+    background-image:
+        linear-gradient(
+            30deg,
+            transparent 12%,
+            rgba(255, 255, 255, 0.5) 12%,
+            rgba(255, 255, 255, 0.5) 14%,
+            transparent 14%
+        );
+
+    background-size: 44px 44px;
+}
+
+
+/* ================================================================
+   05. NAVEGAÇÃO
+   ================================================================ */
+
+#main-nav {
+    position: relative;
+}
+
+
+.nav-button {
+    position: relative;
+    overflow: hidden;
+
+    transform: translateY(0);
+
+    transition:
+        transform var(--br-transition),
+        box-shadow var(--br-transition),
+        filter var(--br-transition);
+}
+
+
+.nav-button::after {
+    content: "";
+
+    position: absolute;
+    left: -110%;
+    top: 0;
+
+    width: 70%;
+    height: 100%;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.18),
+            transparent
+        );
+
+    transform: skewX(-20deg);
+
+    transition: left 500ms ease;
+}
+
+
+.nav-button:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.02);
+}
+
+
+.nav-button:hover::after {
+    left: 135%;
+}
+
+
+.nav-button:active {
+    transform: translateY(0);
+}
+
+
+/* ================================================================
+   06. SEÇÕES
+   ================================================================ */
+
+.content-section {
+    width: 100%;
+
+    opacity: 1;
+    transform: translateY(0);
+
+    transition:
+        opacity 220ms ease,
+        transform 220ms ease;
+}
+
+
+/*
+ * Usada pelo script.js durante a troca de páginas.
+ */
+.content-section.section-hidden {
+    opacity: 0;
+    transform: translateY(8px);
+    pointer-events: none;
+}
+
+
+/*
+ * Pequena entrada visual para a seção que acabou de aparecer.
+ */
+.content-section:not(.hidden) {
+    animation: br-section-enter 260ms ease both;
+}
+
+
+@keyframes br-section-enter {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ================================================================
+   07. CARTÕES E SUPERFÍCIES
+   ================================================================ */
+
+.glass {
+    background: rgba(255, 255, 255, 0.88);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255, 255, 255, 0.65);
+}
+
+
+#sections-container > .content-section > div,
+#sections-container article,
+#sections-container .rounded-3xl {
+    transition:
+        box-shadow var(--br-transition),
+        transform var(--br-transition);
+}
+
+
+/*
+ * Cards interativos ficam um pouco mais vivos no desktop.
+ */
+@media (hover: hover) and (pointer: fine) {
+
+    #home-section .grid > button:hover,
+    #como-funciona-section article:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--br-shadow-hover);
+    }
+}
+
+
+/* ================================================================
+   08. HOME / HERO
+   ================================================================ */
+
+#home-section h1 {
+    text-wrap: balance;
+}
+
+
+#home-section .river-gradient {
+    position: relative;
+    overflow: hidden;
+
+    box-shadow:
+        0 20px 50px rgba(3, 105, 161, 0.15);
+}
+
+
+#home-section .river-gradient::before {
+    content: "";
+
+    position: absolute;
+
+    width: 18rem;
+    height: 18rem;
+
+    right: -7rem;
+    bottom: -9rem;
+
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 0 2rem rgba(255, 255, 255, 0.035),
+        0 0 0 4rem rgba(255, 255, 255, 0.025);
+
+    pointer-events: none;
+}
+
+
+#home-section .amazon-pattern {
+    box-shadow:
+        0 15px 35px rgba(15, 23, 42, 0.15);
+}
+
+
+/* ================================================================
+   09. ÍCONES
+   ================================================================ */
+
+.fa,
+.fas,
+.far,
+.fab {
+    line-height: 1;
+}
+
+
+/*
+ * Pequeno alinhamento para ícones dentro de botões.
+ */
+button i,
+a i {
+    vertical-align: -0.05em;
+}
+
+
+/* ================================================================
+   10. FORMULÁRIOS
+   ================================================================ */
+
+input,
+textarea,
+select {
+    color: var(--br-texto);
+
+    transition:
+        border-color var(--br-transition),
+        box-shadow var(--br-transition),
+        background-color var(--br-transition);
+}
+
+
+input::placeholder,
+textarea::placeholder {
+    color: #94a3b8;
+}
+
+
+input:hover,
+textarea:hover,
+select:hover {
+    border-color: #cbd5e1;
+}
+
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--br-verde);
+    box-shadow:
+        0 0 0 4px rgba(15, 118, 110, 0.10);
+}
+
+
+input[type="search"]::-webkit-search-cancel-button {
+    cursor: pointer;
+}
+
+
+/* ================================================================
+   11. MENU DO USUÁRIO
+   ================================================================ */
+
+#user-menu {
+    transform-origin: top right;
+
+    animation: br-menu-enter 150ms ease both;
+
+    z-index: 100;
+}
+
+
+@keyframes br-menu-enter {
+    from {
+        opacity: 0;
+        transform: translateY(-4px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+#user-menu button {
+    min-height: 48px;
+}
+
+
+#user-menu button:hover {
+    padding-left: 1.15rem;
+}
+
+
+/* ================================================================
+   12. MAPA
+   ================================================================ */
+
+#pontos-de-coleta-section iframe {
+    border: 0;
+}
+
+
+#pontos-de-coleta-section .overflow-hidden {
+    box-shadow:
+        inset 0 0 0 1px rgba(15, 23, 42, 0.04);
+}
+
+
+/* ================================================================
+   13. PERFIL
+   ================================================================ */
+
+#perfil-section .grid {
+    transition: none;
+}
+
+
+#perfil-section [style*="width: 83.33%"] {
+    transition: width 700ms ease;
+}
+
+
+#perfil-section table,
+#perfil-section [role="table"] {
+    width: 100%;
+}
+
+
+/* ================================================================
+   14. TOAST / NOTIFICAÇÃO
+   ================================================================ */
+
+#toast-notification {
+    opacity: 1;
+    transform: translateY(0);
+
+    transition:
+        opacity 250ms ease,
+        transform 250ms ease;
+}
+
+
+#toast-notification.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/*
+ * O JavaScript começa removendo .hidden e depois adiciona .show.
+ * Esta regra garante que a transição também tenha um estado inicial.
+ */
+#toast-notification.hidden {
+    opacity: 0;
+    transform: translateY(12px);
+    pointer-events: none;
+}
+
+
+/* ================================================================
+   15. BOTÃO DA MÚSICA
+   ================================================================ */
+
+#music-toggle {
+    transition:
+        transform 180ms ease,
+        box-shadow 180ms ease,
+        background-color 180ms ease;
+}
+
+
+#music-toggle:hover {
+    box-shadow:
+        0 12px 30px rgba(15, 118, 110, 0.30);
+}
+
+
+#music-toggle:active {
+    transform: scale(0.94);
+}
+
+
+#music-toggle i {
+    transition:
+        transform 200ms ease;
+}
+
+
+#music-toggle:hover i {
+    transform: scale(1.08);
+}
+
+
+/* ================================================================
+   16. RODAPÉ
+   ================================================================ */
+
+footer {
+    position: relative;
+}
+
+
+footer::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--br-amarelo) 0 20%,
+            var(--br-verde-claro) 20% 40%,
+            var(--br-azul) 40% 60%,
+            var(--br-terracota) 60% 80%,
+            var(--br-verde) 80% 100%
+        );
+}
+
+
+footer a {
+    transition:
+        transform var(--br-transition),
+        background-color var(--br-transition);
+}
+
+
+footer a:hover {
+    transform: translateY(-2px);
+}
+
+
+/* ================================================================
+   17. RESPONSIVIDADE
+   ================================================================ */
+
+/*
+ * Tablets.
+ */
+@media (max-width: 900px) {
+
+    #home-section .river-gradient {
+        border-radius: 1.5rem;
+    }
+
+    #home-section h1 {
+        font-size: clamp(2.25rem, 7vw, 3.5rem);
+    }
+
+    #pontos-de-coleta-section iframe {
+        min-height: 420px;
+    }
+}
+
+
+/*
+ * Celulares.
+ */
+@media (max-width: 640px) {
+
+    body {
+        overflow-x: hidden;
+    }
+
+
+    /*
+     * Header mais compacto.
+     */
+    header {
+        position: relative;
+    }
+
+
+    #logo {
+        max-width: calc(100vw - 90px);
+    }
+
+
+    #logo span:last-child {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+
+    /*
+     * Hero.
+     */
+    #home-section .river-gradient {
+        padding: 1.5rem;
+        border-radius: 1.5rem;
+    }
+
+
+    #home-section h1 {
+        font-size: 2.25rem;
+        line-height: 1.08;
+    }
+
+
+    #home-section p {
+        font-size: 1rem;
+    }
+
+
+    /*
+     * Botões de navegação.
+     */
+    #main-nav {
+        gap: 0.6rem;
+    }
+
+
+    #main-nav .nav-button {
+        padding: 0.85rem 1rem;
+        font-size: 0.9rem;
+    }
+
+
+    /*
+     * Mapa.
+     */
+    #pontos-de-coleta-section iframe {
+        min-height: 360px;
+    }
+
+
+    /*
+     * Histórico do perfil.
+     *
+     * Em telas muito pequenas, reduzimos o tamanho para
+     * evitar que o conteúdo fique esmagado.
+     */
+    #perfil-section .grid.grid-cols-4 {
+        font-size: 0.72rem;
+    }
+
+
+    #perfil-section .grid.grid-cols-4 > * {
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+
+    /*
+     * Botão flutuante da música.
+     */
+    #music-toggle {
+        right: 1rem;
+        bottom: 1rem;
+
+        width: 3.25rem;
+        height: 3.25rem;
+    }
+
+
+    /*
+     * Menu do usuário.
+     */
+    #user-menu {
+        right: -0.25rem;
+        width: min(15rem, calc(100vw - 2rem));
+    }
+
+
+    /*
+     * Rodapé.
+     */
+    footer {
+        padding-bottom: 5rem;
+    }
+}
+
+
+/* ================================================================
+   18. REDUÇÃO DE MOVIMENTO
+   ================================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+
+    .nav-button:hover {
+        transform: none;
+    }
+
+
+    footer a:hover,
+    #music-toggle:hover,
+    #home-section .grid > button:hover,
+    #como-funciona-section article:hover {
+        transform: none;
+    }
+}
+
+
+/* ================================================================
+   19. IMPRESSÃO
+   ================================================================ */
+
+@media print {
+
+    header {
+        position: static !important;
+    }
+
+
+    #music-toggle,
+    #user-menu,
+    #toast-notification,
+    #main-nav {
+        display: none !important;
+    }
+
+
+    body {
+        color: #000000;
+        background: #ffffff;
+    }
+
+
+    .content-section.hidden {
+        display: none !important;
+    }
+
+
+    .content-section:not(.hidden) {
+        animation: none !important;
+    }
+
+
+    a {
+        color: #000000 !important;
+        text-decoration: underline;
+    }
+}
