@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="#BoraReciclar — Escola Benjamin Constant">
+  <meta name="theme-color" content="#0F766E">
+  <title>#BoraReciclar | Escola Benjamin Constant</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
+  <style>
+    /* Identidade visual: Amazônia/Pará. O padrão é geométrico e decorativo,
+       sem atribuí-lo a uma etnia específica. */
+    :root{--verde:#0f766e;--azul:#0369a1;--areia:#f5ead5;--terra:#7c2d12}
+    body{background:radial-gradient(circle at 10% 10%,rgba(20,184,166,.08),transparent 30%),linear-gradient(180deg,#f8fafc,#f1f5f9)}
+    .amazon-pattern{background-color:var(--areia);background-image:linear-gradient(45deg,rgba(124,45,18,.10) 25%,transparent 25%),linear-gradient(-45deg,rgba(124,45,18,.10) 25%,transparent 25%),linear-gradient(45deg,transparent 75%,rgba(124,45,18,.10) 75%),linear-gradient(-45deg,transparent 75%,rgba(124,45,18,.10) 75%);background-size:22px 22px;background-position:0 0,0 11px,11px -11px,-11px 0}
+    .river-gradient{background:linear-gradient(135deg,#0f766e,#0369a1)}
+    .focus-ring:focus-visible{outline:3px solid #f59e0b;outline-offset:3px}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important}}
+  </style>
+</head>
+<body class="min-h-screen flex flex-col text-slate-800">
+
+  <!-- =========================================================
+       CABEÇALHO / IDENTIDADE
+       ========================================================= -->
+  <header class="sticky top-0 z-50 shadow-lg">
+    <div class="river-gradient text-white">
+      <div class="max-w-7xl mx-auto px-4 py-4 md:px-8">
+        <div class="flex items-center justify-between gap-4">
+          <button id="logo" type="button" class="focus-ring flex items-center gap-3 text-left" title="Voltar para o início" aria-label="Voltar para o início">
+            <span class="amazon-pattern flex h-11 w-11 items-center justify-center rounded-xl text-xl font-black text-amber-900 shadow-md">♻</span>
+            <span><span class="block text-xl md:text-2xl font-black">#BoraReciclar</span><span class="block text-xs md:text-sm text-white/80">Escola Benjamin Constant • Pará</span></span>
+          </button>
+          <div class="relative">
+            <button id="user-menu-button" type="button" class="focus-ring rounded-full p-2 hover:bg-white/15" aria-label="Abrir menu do usuário" aria-haspopup="true">
+              <i class="fas fa-user-circle text-3xl" aria-hidden="true"></i>
+            </button>
+            <div id="user-menu" class="absolute right-0 mt-3 hidden w-60 overflow-hidden rounded-2xl bg-white py-2 text-slate-800 shadow-2xl" role="menu"></div>
+          </div>
+        </div>
+        <div class="mt-4 flex h-2 overflow-hidden rounded-full opacity-90" aria-hidden="true">
+          <span class="w-1/5 bg-amber-300"></span><span class="w-1/5 bg-emerald-300"></span><span class="w-1/5 bg-sky-300"></span><span class="w-1/5 bg-amber-300"></span><span class="w-1/5 bg-emerald-300"></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-1">
+    <div class="max-w-7xl mx-auto px-4 py-6 md:px-8 md:py-10">
+      <!-- Navegação principal -->
+      <nav id="main-nav" class="mb-8 grid grid-cols-1 gap-3 sm:grid-cols-3" aria-label="Navegação principal">
+        <button type="button" data-section="pontos-de-coleta-section" class="nav-button focus-ring rounded-2xl bg-emerald-600 px-5 py-4 font-bold text-white shadow-md hover:bg-emerald-700"><i class="fas fa-map-marker-alt mr-2" aria-hidden="true"></i>Pontos de Coleta</button>
+        <button type="button" data-section="como-funciona-section" class="nav-button focus-ring rounded-2xl bg-sky-700 px-5 py-4 font-bold text-white shadow-md hover:bg-sky-800"><i class="fas fa-leaf mr-2" aria-hidden="true"></i>Como Funciona?</button>
+        <button type="button" data-section="creditos-section" class="nav-button focus-ring rounded-2xl bg-amber-700 px-5 py-4 font-bold text-white shadow-md hover:bg-amber-800"><i class="fas fa-info-circle mr-2" aria-hidden="true"></i>Créditos</button>
+      </nav>
+
+      <div id="sections-container">
+        <!-- =====================================================
+             INÍCIO
+             ===================================================== -->
+        <section id="home-section" class="content-section" aria-labelledby="home-title">
+          <div class="river-gradient overflow-hidden rounded-3xl p-6 text-white shadow-xl md:p-10">
+            <div class="grid items-center gap-10 lg:grid-cols-[1.5fr_1fr]">
+              <div>
+                <div class="mb-4 inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-2 text-sm font-semibold"><span aria-hidden="true">🌿</span>Um projeto pensado para nossa comunidade</div>
+                <h1 id="home-title" class="max-w-3xl text-4xl font-black leading-tight md:text-6xl">Reciclar no Pará pode começar com uma atitude.</h1>
+                <p class="mt-5 max-w-2xl text-lg leading-relaxed text-white/90 md:text-xl">O <strong>#BoraReciclar</strong> aproxima pessoas, pontos de coleta e coletores para transformar pequenos hábitos em impacto positivo.</p>
+                <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+                  <button type="button" data-section="pontos-de-coleta-section" class="nav-button focus-ring rounded-2xl bg-white px-6 py-4 font-black text-emerald-800 shadow-lg hover:-translate-y-0.5"><i class="fas fa-map-marker-alt mr-2" aria-hidden="true"></i>Encontrar um ponto</button>
+                  <button type="button" data-section="usuario-cadastro-section" class="nav-button focus-ring rounded-2xl border border-white/30 bg-white/10 px-6 py-4 font-bold hover:bg-white/20">Quero participar</button>
+                </div>
+              </div>
+              <div class="hidden lg:block">
+                <div class="amazon-pattern rounded-3xl p-6 shadow-2xl"><div class="rounded-2xl bg-white p-6 text-slate-800">
+                  <div class="flex items-center justify-between"><span class="font-black text-emerald-800">Impacto coletivo</span><span class="text-3xl" aria-hidden="true">♻️</span></div>
+                  <div class="mt-6 grid grid-cols-2 gap-4">
+                    <div class="rounded-2xl bg-emerald-50 p-4"><strong class="block text-3xl text-emerald-700">1.284</strong><span class="text-sm text-slate-600">kg reciclados*</span></div>
+                    <div class="rounded-2xl bg-sky-50 p-4"><strong class="block text-3xl text-sky-700">327</strong><span class="text-sm text-slate-600">participantes*</span></div>
+                  </div>
+                  <p class="mt-4 text-xs text-slate-500">*Números ilustrativos para demonstração do conceito.</p>
+                </div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ações rápidas -->
+          <div class="mt-8 grid gap-5 md:grid-cols-3">
+            <button type="button" data-section="pontos-de-coleta-section" class="nav-button focus-ring rounded-3xl bg-white p-6 text-left shadow-md ring-1 ring-slate-200 hover:-translate-y-1 hover:shadow-xl"><span class="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-100 text-xl text-emerald-700"><i class="fas fa-map-marked-alt" aria-hidden="true"></i></span><strong class="block text-xl">Onde reciclar?</strong><span class="mt-2 block text-slate-600">Encontre pontos de coleta e veja onde cada material pode ser destinado.</span></button>
+            <button type="button" data-section="como-funciona-section" class="nav-button focus-ring rounded-3xl bg-white p-6 text-left shadow-md ring-1 ring-slate-200 hover:-translate-y-1 hover:shadow-xl"><span class="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-sky-100 text-xl text-sky-700"><i class="fas fa-lightbulb" aria-hidden="true"></i></span><strong class="block text-xl">Aprenda a reciclar</strong><span class="mt-2 block text-slate-600">Dicas simples para separar resíduos e diminuir o desperdício.</span></button>
+            <button type="button" data-section="usuario-cadastro-section" class="nav-button focus-ring rounded-3xl bg-white p-6 text-left shadow-md ring-1 ring-slate-200 hover:-translate-y-1 hover:shadow-xl"><span class="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-100 text-xl text-amber-700"><i class="fas fa-users" aria-hidden="true"></i></span><strong class="block text-xl">Faça parte</strong><span class="mt-2 block text-slate-600">Conheça a proposta de participação e o futuro sistema de cadastro.</span></button>
+          </div>
+
+          <div class="amazon-pattern mt-8 rounded-3xl p-1"><div class="rounded-[1.35rem] bg-white px-6 py-8 text-center"><p class="text-sm font-bold uppercase tracking-[.2em] text-amber-800">Nossa identidade • Amazônia • Comunidade • Cuidado</p><p class="mx-auto mt-3 max-w-3xl text-lg text-slate-600">A identidade usa formas geométricas inspiradas em grafismos amazônicos de maneira decorativa, sem atribuí-las a uma etnia específica.</p></div></div>
+        </section>
+
+        <!-- =====================================================
+             COMO FUNCIONA
+             ===================================================== -->
+        <section id="como-funciona-section" class="content-section hidden" aria-labelledby="como-funciona-title">
+          <div class="rounded-3xl bg-white p-6 shadow-xl ring-1 ring-slate-200 md:p-10">
+            <div class="mx-auto max-w-4xl text-center"><span class="inline-flex rounded-full bg-emerald-100 px-4 py-2 text-sm font-bold text-emerald-800">Educação ambiental</span><h2 id="como-funciona-title" class="mt-4 text-3xl font-black md:text-4xl">#BoraReciclar e transformar o mundo?</h2><p class="mt-4 text-lg text-slate-600">A proposta é tornar a reciclagem mais simples, acessível e participativa.</p></div>
+            <div class="amazon-pattern mt-8 rounded-2xl p-5"><div class="rounded-xl border-l-4 border-amber-600 bg-white p-5 shadow-sm"><h3 class="text-xl font-black text-amber-800"><i class="fas fa-lightbulb mr-2" aria-hidden="true"></i>Resíduo não é tudo igual</h3><p class="mt-3 text-slate-700"><strong>Resíduo:</strong> materiais que ainda podem ser reutilizados, reaproveitados ou reciclados.</p><p class="mt-2 text-slate-700"><strong>Rejeito:</strong> aquilo que não possui aproveitamento viável e precisa de destinação adequada.</p></div></div>
+            <h3 class="mt-10 text-center text-2xl font-black">5 atitudes para começar</h3>
+            <div class="mt-6 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+              <article class="rounded-2xl bg-slate-50 p-5 ring-1 ring-slate-200"><span class="text-2xl">01</span><h4 class="mt-3 font-black">Separe o básico</h4><p class="mt-2 text-sm text-slate-600">Separe recicláveis de orgânicos e rejeitos.</p></article>
+              <article class="rounded-2xl bg-slate-50 p-5 ring-1 ring-slate-200"><span class="text-2xl">02</span><h4 class="mt-3 font-black">Limpe as embalagens</h4><p class="mt-2 text-sm text-slate-600">Uma limpeza rápida ajuda a evitar contaminação.</p></article>
+              <article class="rounded-2xl bg-slate-50 p-5 ring-1 ring-slate-200"><span class="text-2xl">03</span><h4 class="mt-3 font-black">Reduza embalagens</h4><p class="mt-2 text-sm text-slate-600">Prefira opções com menos descartáveis quando possível.</p></article>
+              <article class="rounded-2xl bg-slate-50 p-5 ring-1 ring-slate-200"><span class="text-2xl">04</span><h4 class="mt-3 font-black">Reutilize</h4><p class="mt-2 text-sm text-slate-600">Antes de descartar, pense se o material pode ganhar nova função.</p></article>
+              <article class="rounded-2xl bg-slate-50 p-5 ring-1 ring-slate-200"><span class="text-2xl">05</span><h4 class="mt-3 font-black">Cuide do óleo</h4><p class="mt-2 text-sm text-slate-600">Nunca descarte óleo de cozinha diretamente no ralo.</p></article>
+              <article class="rounded-2xl bg-emerald-50 p-5 ring-1 ring-emerald-200"><span class="text-2xl">🌱</span><h4 class="mt-3 font-black text-emerald-900">Comece pequeno</h4><p class="mt-2 text-sm text-emerald-800">O objetivo é criar hábitos sustentáveis que possam ser mantidos.</p></article>
+            </div>
+          </div>
+        </section>
+
+        <!-- =====================================================
+             PONTOS DE COLETA
+             ===================================================== -->
+        <section id="pontos-de-coleta-section" class="content-section hidden" aria-labelledby="pontos-title">
+          <div class="rounded-3xl bg-white p-6 shadow-xl ring-1 ring-slate-200 md:p-8">
+            <div class="flex flex-col gap-5 md:flex-row md:items-end md:justify-between"><div><span class="text-sm font-bold uppercase tracking-wider text-emerald-700">Destinação correta</span><h2 id="pontos-title" class="mt-1 text-3xl font-black md:text-4xl">Pontos de Coleta</h2><p class="mt-2 max-w-2xl text-slate-600">Nesta demonstração, o mapa apresenta a região de busca. Em uma versão futura, os pontos poderão vir de um backend.</p></div><div class="rounded-2xl bg-emerald-50 px-4 py-3 text-sm text-emerald-800"><i class="fas fa-location-dot mr-2" aria-hidden="true"></i>Busca por região</div></div>
+            <div class="mt-6 grid gap-3 md:grid-cols-[1fr_auto]"><label class="relative block"><span class="sr-only">Pesquisar ponto de coleta</span><i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" aria-hidden="true"></i><input type="search" placeholder="Procure por bairro ou material..." class="focus-ring w-full rounded-2xl border border-slate-200 bg-slate-50 py-4 pl-11 pr-4 outline-none focus:bg-white"></label><button type="button" class="focus-ring rounded-2xl bg-slate-900 px-5 py-4 font-bold text-white hover:bg-slate-800"><i class="fas fa-filter mr-2" aria-hidden="true"></i>Filtros</button></div>
+            <div class="mt-4 flex flex-wrap gap-2"><button type="button" class="focus-ring rounded-full bg-emerald-100 px-4 py-2 text-sm font-bold text-emerald-800">♻️ Todos</button><button type="button" class="focus-ring rounded-full bg-slate-100 px-4 py-2 text-sm">Papel</button><button type="button" class="focus-ring rounded-full bg-slate-100 px-4 py-2 text-sm">Plástico</button><button type="button" class="focus-ring rounded-full bg-slate-100 px-4 py-2 text-sm">Vidro</button><button type="button" class="focus-ring rounded-full bg-slate-100 px-4 py-2 text-sm">Metal</button><button type="button" class="focus-ring rounded-full bg-slate-100 px-4 py-2 text-sm">Eletrônicos</button></div>
+            <div class="mt-6 overflow-hidden rounded-3xl border border-slate-200 bg-slate-100"><div class="h-[420px] md:h-[520px]"><iframe src="https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d31908.21712355647!2d-48.48400041459698!3d-1.4576933116555797!3m2!1i1024!2i768!4f13.1!2m1!1sReciclagem!5e0!3m2!1spt-BR!2sbr!4v1755872491181!5m2!1spt-BR!2sbr" class="h-full w-full" loading="lazy" allowfullscreen title="Mapa de pontos de reciclagem"></iframe></div></div>
+          </div>
+        </section>
+
+        <!-- =====================================================
+             CRÉDITOS
+             ===================================================== -->
+        <section id="creditos-section" class="content-section hidden" aria-labelledby="creditos-title">
+          <div class="overflow-hidden rounded-3xl bg-white shadow-xl ring-1 ring-slate-200"><div class="amazon-pattern px-6 py-10 text-center md:px-10"><span class="text-4xl">🌿</span><h2 id="creditos-title" class="mt-3 text-3xl font-black">Pessoas por trás do projeto</h2><p class="mt-3 text-slate-600">O #BoraReciclar nasceu como uma proposta da Escola Benjamin Constant.</p></div><div class="grid gap-6 p-6 md:grid-cols-3 md:p-10">
+            <article class="rounded-2xl bg-slate-50 p-6 text-center"><span class="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-sky-100 text-xl text-sky-700"><i class="fas fa-school" aria-hidden="true"></i></span><h3 class="mt-4 font-black text-sky-800">Idealização e Coordenação</h3><p class="mt-3 text-slate-700"><strong>Escola Benjamin Constant</strong></p><p class="mt-2 text-sm text-slate-600">Prof. Sabrina Forte e Natália Barbosa</p></article>
+            <article class="rounded-2xl bg-slate-50 p-6 text-center"><span class="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-100 text-xl text-emerald-700"><i class="fas fa-code" aria-hidden="true"></i></span><h3 class="mt-4 font-black text-emerald-800">Desenvolvimento e Design</h3><p class="mt-3 text-slate-700"><strong>Alunos</strong></p><p class="mt-2 text-sm text-slate-600">Mateus, Hylana e Enzo</p></article>
+            <article class="rounded-2xl bg-slate-50 p-6 text-center"><span class="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-amber-100 text-xl text-amber-700"><i class="fas fa-heart" aria-hidden="true"></i></span><h3 class="mt-4 font-black text-amber-800">Agradecimentos</h3><p class="mt-3 text-sm text-slate-600">A todos os voluntários, pais e membros da comunidade.</p></article>
+          </div></div>
+        </section>
+
+        <!-- =====================================================
+             PERFIL — preenchido pelo JavaScript; hoje é demonstração
+             ===================================================== -->
+        <section id="perfil-section" class="content-section hidden" aria-labelledby="perfil-title"><div class="rounded-3xl bg-white p-6 shadow-xl ring-1 ring-slate-200 md:p-10"></div></section>
+
+        <!-- =====================================================
+             CADASTRO DE USUÁRIO — SOMENTE DEMONSTRAÇÃO
+             A estrutura de formulário poderá futuramente apontar para API/backend.
+             ===================================================== -->
+        <section id="usuario-cadastro-section" class="content-section hidden" aria-labelledby="cadastro-title">
+          <div class="mx-auto max-w-3xl rounded-3xl bg-white p-6 shadow-xl ring-1 ring-slate-200 md:p-10"><div class="text-center"><span class="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-100 text-xl text-emerald-700"><i class="fas fa-user-plus" aria-hidden="true"></i></span><h2 id="cadastro-title" class="mt-4 text-3xl font-black">Cadastro de Usuário</h2><p class="mt-3 text-slate-600">Nesta versão, o cadastro é ilustrativo. Nenhum dado é enviado a servidor.</p></div>
+            <form id="demo-user-form" class="mt-8 space-y-5"><div><label for="demo-name" class="mb-2 block text-sm font-bold">Nome</label><input id="demo-name" type="text" placeholder="Nome para a demonstração" class="focus-ring w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4 outline-none focus:bg-white"></div><div><label for="demo-email" class="mb-2 block text-sm font-bold">E-mail</label><input id="demo-email" type="email" placeholder="exemplo@email.com" class="focus-ring w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4 outline-none focus:bg-white"></div><button type="submit" class="focus-ring w-full rounded-2xl bg-emerald-600 px-6 py-4 font-black text-white shadow-md hover:bg-emerald-700">Simular cadastro e entrar</button></form>
+          </div>
+        </section>
+
+        <!-- =====================================================
+             CADASTRO DE COLETOR — SOMENTE DEMONSTRAÇÃO
+             ===================================================== -->
+        <section id="coletor-cadastro-section" class="content-section hidden" aria-labelledby="coletor-title">
+          <div class="mx-auto max-w-3xl rounded-3xl bg-white p-6 shadow-xl ring-1 ring-slate-200 md:p-10
