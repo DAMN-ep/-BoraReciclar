@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 220" role="img" aria-label="Rio com peixe, folhas e ondas">
+  <path d="M0 120 Q75 90 150 120 T300 120 T450 120 T600 120 V220 H0Z" fill="#1f6f8b"/>
+  <path d="M0 150 Q75 122 150 150 T300 150 T450 150 T600 150 V220 H0Z" fill="#0b5f7a"/>
+  <path d="M0 182 Q75 156 150 182 T300 182 T450 182 T600 182 V220 H0Z" fill="#0a4a61"/>
+  <path d="M120 112 C70 60 100 20 150 8 C190 40 175 90 120 112Z" fill="#9ad07a"/>
+  <path d="M122 108 C130 70 140 40 150 14" stroke="#17402f" stroke-width="3" fill="none"/>
+  <path d="M470 108 C430 70 450 30 500 20 C535 52 520 92 470 108Z" fill="#6fb05a"/>
+  <path d="M472 104 C480 74 490 48 500 26" stroke="#17402f" stroke-width="3" fill="none"/>
+  <path d="M250 160 C275 140 320 140 345 160 C320 180 275 180 250 160Z" fill="#9ad07a"/>
+  <path d="M345 160 L372 142 L372 178Z" fill="#9ad07a"/>
+  <circle cx="276" cy="156" r="3.5" fill="#0a4a61"/>
+</svg>
